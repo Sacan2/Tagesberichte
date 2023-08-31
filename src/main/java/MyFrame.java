@@ -6,7 +6,8 @@ public class MyFrame extends JFrame {
     JScrollPane scrollBar = new JScrollPane(taskInput);
     JLabel textForTask = new JLabel();
     JLabel textForTime = new JLabel();
-    JComboBox<String> timeDropDown = new JComboBox<String>();
+    String[] array = {"bla","adsasd","asdas","sda"};
+    JComboBox<String> timeDropDown = new JComboBox<String>(array);
 
     MyFrame() {
         this.setTitle("Tagesberichte");
@@ -29,18 +30,20 @@ public class MyFrame extends JFrame {
             String jFormatierung = String.format("%02d", j);
             int counter = 6;
             String zero = "0";
+            String b = zero + counter;
 
+                    if (Objects.equals(iFormatierung, b)) {
+                        timeDropDown.addItem(iFormatierung + ":" + jFormatierung);
+                        i--;
+                        if (Objects.equals(jFormatierung, "55")){
+                            for (int d = 0;d<55;d++){
 
-                if (Objects.equals(iFormatierung, "06")){
-                    timeDropDown.addItem(iFormatierung + ":"+jFormatierung);
-                    i--;
-                }
+                            }
+
+                        }
+                    }
 
         }
-
-
-
-
 
         this.add(timeDropDown);
         this.add(textForTime);
@@ -49,5 +52,8 @@ public class MyFrame extends JFrame {
         this.setSize(500, 500);
         this.setVisible(true);
         }
+
+
+
     }
 
