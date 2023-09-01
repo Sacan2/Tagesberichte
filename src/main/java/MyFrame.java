@@ -1,15 +1,17 @@
 import javax.swing.*;
-import java.util.Objects;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MyFrame extends JFrame {
     JTextArea taskInput = new JTextArea();
     JScrollPane scrollBar = new JScrollPane(taskInput);
     JLabel textForTask = new JLabel();
     JLabel textForTime = new JLabel();
-    String[] array = {"bla","adsasd","asdas","sda"};
-    JComboBox<String> timeDropDown = new JComboBox<String>(array);
+    JComboBox<String> timeStart = new JComboBox<String>();
+    JComboBox<String> timeEnd = new JComboBox<String>();
 
     MyFrame() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         this.setTitle("Tagesberichte");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(null);
@@ -23,29 +25,26 @@ public class MyFrame extends JFrame {
         textForTime.setText("Benötigte Zeit");
         textForTime.setBounds(355, 17, 200, 30);
 
-        timeDropDown.setEditable(true);
-        timeDropDown.setBounds(350,50,100,20);
-        for (int i = 6,j=0; i < 18 && j < 60; i++,j +=5) {
-            String iFormatierung = String.format("%02d", i);
-            String jFormatierung = String.format("%02d", j);
-            int counter = 6;
-            String zero = "0";
-            String b = zero + counter;
+        timeStart.setEditable(true);
+        timeStart.setBounds(350, 50, 100, 20);
 
-                    if (Objects.equals(iFormatierung, b)) {
-                        timeDropDown.addItem(iFormatierung + ":" + jFormatierung);
-                        i--;
-                        if (Objects.equals(jFormatierung, "55")){
-                            for (int d = 0;d<55;d++){
+        timeEnd.setEditable(true);
+        timeEnd.setBounds(350,100,100,20);
 
-                            }
+        for (int hour = 6; hour <= 18; hour++) {
+            for (int minute = 0; minute < 60; minute += 5) {
+                if (hour == 18 && minute > 0) {
+                    break; // Stop at 18:00
+                }
+                Date time = new Date(0, 0, 0, hour, minute);
+                timeStart.addItem(sdf.format(time));
+                timeEnd.addItem(sdf.format(time));
+            }
 
-                        }
-                    }
+    }
 
-        }
-
-        this.add(timeDropDown);
+        this.add(timeStart);
+        this.add(timeEnd);
         this.add(textForTime);
         this.add(textForTask);
         this.add(scrollBar);
