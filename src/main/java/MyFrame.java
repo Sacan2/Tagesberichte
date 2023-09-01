@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 public class MyFrame extends JFrame {
     String[] daysArray = {"Montag","Dienstag","Mittwoch","Donnerstag","Freitag"};
     JTextArea taskInput = new JTextArea();
@@ -15,6 +16,7 @@ public class MyFrame extends JFrame {
     JButton createButton = new JButton("Excel erstellen");
     JButton rowButton = new JButton("Spalte beschreiben");
     MyFrame() {
+
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         this.setTitle("Tagesberichte");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

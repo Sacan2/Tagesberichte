@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="476641c4-b488-406d-b19b-278a01c5684e" name="Changes" comment="- Aus Chatgbt mir die Zeiten genariern lassen&#10;- Keine Eigenleistung">
+    <list default="true" id="476641c4-b488-406d-b19b-278a01c5684e" name="Changes" comment="Das erste Layout ist fertig">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693550740198</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Das erste Layout ist fertig">
+      <created>1693566498634</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1693566498634</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +122,7 @@
     <MESSAGE value="Die zahlen von 06:00 bis 06:55 gehen" />
     <MESSAGE value="Nicht wirklich weitergekommen" />
     <MESSAGE value="- Aus Chatgbt mir die Zeiten genariern lassen&#10;- Keine Eigenleistung" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Aus Chatgbt mir die Zeiten genariern lassen&#10;- Keine Eigenleistung" />
+    <MESSAGE value="Das erste Layout ist fertig" />
+    <option name="LAST_COMMIT_MESSAGE" value="Das erste Layout ist fertig" />
   </component>
 </project>
