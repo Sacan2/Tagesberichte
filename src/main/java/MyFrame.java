@@ -1,9 +1,11 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
-
-public class MyFrame extends JFrame {
+public class MyFrame extends JFrame implements ActionListener {
+    public int rowsCount = 0;
     String[] daysArray = {"Montag","Dienstag","Mittwoch","Donnerstag","Freitag"};
     JTextArea taskInput = new JTextArea();
     JScrollPane scrollBar = new JScrollPane(taskInput);
@@ -15,6 +17,8 @@ public class MyFrame extends JFrame {
     JComboBox<String> dayChoice = new JComboBox<String>(daysArray);
     JButton createButton = new JButton("Excel erstellen");
     JButton rowButton = new JButton("Spalte beschreiben");
+    List<List<Object>> ls2d = new ArrayList<List<Object>>();
+    List<Object> x = new ArrayList<Object>();
     MyFrame() {
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
@@ -22,7 +26,7 @@ public class MyFrame extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(null);
 
-        scrollBar.setBounds(10, 40, 280, 180);
+        scrollBar.setBounds(10, 40, 280, 100);
         taskInput.setLineWrap(true);
 
         textForTask.setText("Erledigte Tätigkeiten");
@@ -44,10 +48,11 @@ public class MyFrame extends JFrame {
         dayChoice.setBounds(350,160,100,20);
 
 
-        rowButton.setBounds(280,300,150,40);
+        rowButton.setBounds(300,300,150,40);
+        rowButton.addActionListener(this);
 
 
-        createButton.setBounds(40,300,150,40);
+        createButton.setBounds(300,370,150,40);
 
         for (int hour = 6; hour <= 18; hour++) {
             for (int minute = 0; minute < 60; minute += 5) {
@@ -72,7 +77,28 @@ public class MyFrame extends JFrame {
         this.setVisible(true);
         }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource()==rowButton){
+
+            rowsCount++;
+            System.out.println(rowsCount);
+
+            x.add(taskInput.getText());
+            x.add(timeStart.getSelectedItem()+"-"+timeEnd.getSelectedItem());
+            ls2d.add(x);
+
+            System.out.println(Arrays.deepToString(ls2d.toArray()));
+
+
+
+            //Object[][] taskData ={{taskInput.getText(),timeStart.getSelectedItem()+"-"+timeEnd.getSelectedItem()}};
+
+
 
 
     }
+}
+}
 
