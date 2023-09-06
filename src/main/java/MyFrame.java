@@ -12,13 +12,13 @@ public class MyFrame extends JFrame implements ActionListener {
     JLabel textForTask = new JLabel();
     JLabel textForTime = new JLabel();
     JLabel textForDay = new JLabel();
-    JComboBox<String> timeStart = new JComboBox<String>();
-    JComboBox<String> timeEnd = new JComboBox<String>();
-    JComboBox<String> dayChoice = new JComboBox<String>(daysArray);
+    JComboBox<String> timeStart = new JComboBox<>();
+    JComboBox<String> timeEnd = new JComboBox<>();
+    JComboBox<String> dayChoice = new JComboBox<>(daysArray);
     JButton createButton = new JButton("Excel erstellen");
     JButton rowButton = new JButton("Spalte beschreiben");
-    List<List<Object>> ls2d = new ArrayList<List<Object>>();
-    List<Object> x = new ArrayList<Object>();
+    List<List<Object>> array_2d_info = new ArrayList<>();
+
     MyFrame() {
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
@@ -79,26 +79,18 @@ public class MyFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        if (e.getSource()==rowButton){
-
+        System.out.println(Arrays.deepToString(array_2d_info.toArray()));
+        if (e.getSource() == rowButton) {
             rowsCount++;
             System.out.println(rowsCount);
 
-            x.add(taskInput.getText());
-            x.add(timeStart.getSelectedItem()+"-"+timeEnd.getSelectedItem());
-            ls2d.add(x);
+            ArrayList<Object> section_inside_2d_array = new ArrayList<>(); // Create a new ArrayList for each row of data
+            section_inside_2d_array.add(taskInput.getText());
+            section_inside_2d_array.add(timeStart.getSelectedItem() + "-" + timeEnd.getSelectedItem());
+            array_2d_info.add(section_inside_2d_array);
 
-            System.out.println(Arrays.deepToString(ls2d.toArray()));
-
-
-
-            //Object[][] taskData ={{taskInput.getText(),timeStart.getSelectedItem()+"-"+timeEnd.getSelectedItem()}};
-
-
-
-
+            System.out.println(Arrays.deepToString(array_2d_info.toArray()));
+        }
     }
-}
 }
 
