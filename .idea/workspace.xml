@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="476641c4-b488-406d-b19b-278a01c5684e" name="Changes" comment="Pom.xml update">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="476641c4-b488-406d-b19b-278a01c5684e" name="Changes" comment="Behebung des Problems mit ArrayList-Referenzen in actionPerformed&#10;&#10;Zuvor wurde derselbe ArrayList-Instanz 'x' in jeder Iteration dem 'ls2d'-ArrayList hinzugefügt, wodurch alle Zeilen auf dieselben Daten verwiesen. Dieser Commit behebt das Problem, indem für jede Datenzeile eine neue ArrayList 'section_inside_2d_array' erstellt wird, um sicherzustellen, dass jede Zeile ihre eigene separate ArrayList hat.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +23,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Sacan2"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="17a26160-119b-4773-85f5-4cb22fde8d49" />
+        <option name="url" value="https://github.com/Sacan2/Tagesberichte.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -125,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693568378014</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Behebung des Problems mit ArrayList-Referenzen in actionPerformed&#10;&#10;Zuvor wurde derselbe ArrayList-Instanz 'x' in jeder Iteration dem 'ls2d'-ArrayList hinzugefügt, wodurch alle Zeilen auf dieselben Daten verwiesen. Dieser Commit behebt das Problem, indem für jede Datenzeile eine neue ArrayList 'section_inside_2d_array' erstellt wird, um sicherzustellen, dass jede Zeile ihre eigene separate ArrayList hat.">
+      <option name="closed" value="true" />
+      <created>1694018923857</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694018923857</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -158,6 +179,7 @@
     <MESSAGE value="- Aus Chatgbt mir die Zeiten genariern lassen&#10;- Keine Eigenleistung" />
     <MESSAGE value="Das erste Layout ist fertig" />
     <MESSAGE value="Pom.xml update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pom.xml update" />
+    <MESSAGE value="Behebung des Problems mit ArrayList-Referenzen in actionPerformed&#10;&#10;Zuvor wurde derselbe ArrayList-Instanz 'x' in jeder Iteration dem 'ls2d'-ArrayList hinzugefügt, wodurch alle Zeilen auf dieselben Daten verwiesen. Dieser Commit behebt das Problem, indem für jede Datenzeile eine neue ArrayList 'section_inside_2d_array' erstellt wird, um sicherzustellen, dass jede Zeile ihre eigene separate ArrayList hat." />
+    <option name="LAST_COMMIT_MESSAGE" value="Behebung des Problems mit ArrayList-Referenzen in actionPerformed&#10;&#10;Zuvor wurde derselbe ArrayList-Instanz 'x' in jeder Iteration dem 'ls2d'-ArrayList hinzugefügt, wodurch alle Zeilen auf dieselben Daten verwiesen. Dieser Commit behebt das Problem, indem für jede Datenzeile eine neue ArrayList 'section_inside_2d_array' erstellt wird, um sicherzustellen, dass jede Zeile ihre eigene separate ArrayList hat." />
   </component>
 </project>

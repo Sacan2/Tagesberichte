@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MyFrame extends JFrame implements ActionListener {
-    public int rowsCount = 0;
     String[] daysArray = {"Montag","Dienstag","Mittwoch","Donnerstag","Freitag"};
     JTextArea taskInput = new JTextArea();
     JScrollPane scrollBar = new JScrollPane(taskInput);
@@ -79,17 +78,25 @@ public class MyFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println(Arrays.deepToString(array_2d_info.toArray()));
         if (e.getSource() == rowButton) {
-            rowsCount++;
-            System.out.println(rowsCount);
+
 
             ArrayList<Object> section_inside_2d_array = new ArrayList<>(); // Create a new ArrayList for each row of data
             section_inside_2d_array.add(taskInput.getText());
             section_inside_2d_array.add(timeStart.getSelectedItem() + "-" + timeEnd.getSelectedItem());
             array_2d_info.add(section_inside_2d_array);
 
-            System.out.println(Arrays.deepToString(array_2d_info.toArray()));
+
+
+            //timeStart.removeItemAt(timeStart.getSelectedIndex());
+            //timeEnd.removeItemAt(timeEnd.getSelectedIndex());
+
+            for (int i = timeEnd.getSelectedIndex() - 1; i >= 0; i--) {
+                timeStart.removeItemAt(i);
+                timeEnd.removeItemAt(i);
+            }
+
+
         }
     }
 }
