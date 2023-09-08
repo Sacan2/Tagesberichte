@@ -86,12 +86,7 @@ public class MyFrame extends JFrame implements ActionListener {
             section_inside_2d_array.add(timeStart.getSelectedItem() + "-" + timeEnd.getSelectedItem());
             array_2d_info.add(section_inside_2d_array);
 
-
-
-            //timeStart.removeItemAt(timeStart.getSelectedIndex());
-            //timeEnd.removeItemAt(timeEnd.getSelectedIndex());
-
-            for (int i = timeEnd.getSelectedIndex() - 1; i >= 0; i--) {
+            for (int i = timeEnd.getSelectedIndex() ; i >= 0; i--) {
                 timeStart.removeItemAt(i);
                 timeEnd.removeItemAt(i);
             }
