@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -53,7 +55,7 @@ public class MyFrame extends JFrame implements ActionListener {
 
         createButton.setBounds(300,370,150,40);
 
-        for (int hour = 6; hour <= 18; hour++) {
+        for (int hour = 7; hour <= 18; hour++) {
             for (int minute = 0; minute < 60; minute += 5) {
                 if (hour == 18 && minute > 0) {
                     break; // Stop at 18:00
@@ -63,6 +65,20 @@ public class MyFrame extends JFrame implements ActionListener {
                 timeEnd.addItem(sdf.format(time));
             }
         }
+        timeStart.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    if (timeStart.getSelectedIndex() > timeEnd.getSelectedIndex()){
+                        timeEnd.setSelectedIndex(timeStart.getSelectedIndex()+1);
+                    }
+                }
+            }
+        });
+
+
+
+
         this.add(rowButton);
         this.add(dayChoice);
         this.add(timeStart);
@@ -90,6 +106,7 @@ public class MyFrame extends JFrame implements ActionListener {
                 timeStart.removeItemAt(i);
                 timeEnd.removeItemAt(i);
             }
+
 
 
         }
