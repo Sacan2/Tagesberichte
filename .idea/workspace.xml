@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="476641c4-b488-406d-b19b-278a01c5684e" name="Changes" comment="Die Zeiten werden Automatisch angepasst">
+    <list default="true" id="476641c4-b488-406d-b19b-278a01c5684e" name="Changes" comment="Mit dem Knopf Excel erstellen wird eine xlsx Datei erstellt, diese besitzt alle Daten die angegeben werden. Die Datein werden nicht Formatiert, wesalb man den Text nicht ganz lesen kann.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyFrame.java" afterDir="false" />
@@ -155,7 +155,23 @@
       <option name="project" value="LOCAL" />
       <updated>1695227654131</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Mit dem Knopf Excel erstellen wird eine xlsx Datei erstellt, diese besitzt alle Daten die angegeben werden. Die Datein werden nicht Formatiert, wesalb man den Text nicht ganz lesen kann.">
+      <option name="closed" value="true" />
+      <created>1696274698793</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1696274698793</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Mit dem Knopf Excel erstellen wird eine xlsx Datei erstellt, diese besitzt alle Daten die angegeben werden. Die Datein werden nicht Formatiert, wesalb man den Text nicht ganz lesen kann.">
+      <option name="closed" value="true" />
+      <created>1696274720316</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1696274720316</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,6 +206,7 @@
     <MESSAGE value="Pom.xml update" />
     <MESSAGE value="Behebung des Problems mit ArrayList-Referenzen in actionPerformed&#10;&#10;Zuvor wurde derselbe ArrayList-Instanz 'x' in jeder Iteration dem 'ls2d'-ArrayList hinzugefügt, wodurch alle Zeilen auf dieselben Daten verwiesen. Dieser Commit behebt das Problem, indem für jede Datenzeile eine neue ArrayList 'section_inside_2d_array' erstellt wird, um sicherzustellen, dass jede Zeile ihre eigene separate ArrayList hat." />
     <MESSAGE value="Die Zeiten werden Automatisch angepasst" />
-    <option name="LAST_COMMIT_MESSAGE" value="Die Zeiten werden Automatisch angepasst" />
+    <MESSAGE value="Mit dem Knopf Excel erstellen wird eine xlsx Datei erstellt, diese besitzt alle Daten die angegeben werden. Die Datein werden nicht Formatiert, wesalb man den Text nicht ganz lesen kann." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mit dem Knopf Excel erstellen wird eine xlsx Datei erstellt, diese besitzt alle Daten die angegeben werden. Die Datein werden nicht Formatiert, wesalb man den Text nicht ganz lesen kann." />
   </component>
 </project>

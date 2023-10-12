@@ -5,6 +5,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,17 +29,25 @@ public class MyFrame extends JFrame implements ActionListener {
     JComboBox<String> dayChoice = new JComboBox<>(daysArray);
     JButton excel_create = new JButton("Excel erstellen");
     JButton spalte_beschreiben = new JButton("Spalte beschreiben");
-    List<List<String>> array_whole_data = new ArrayList<>();
+    List<List<Object>> array_whole_data = new ArrayList<>();
+    public Object[] columnNames = {"Montag", "Uhrzeit",
+            "Dienstag", "Uhrzeit",
+            "Mittwoch", "Uhrzeit",
+            "Donnerstag", "Uhrzeit",
+            "Freitag", "Uhrzeit"
+    };
+
+    private JTable jTable;
+    private DefaultTableModel tableModel;
 
     MyFrame() {
-
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         this.setTitle("Tagesberichte");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(null);
 
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/3- this.getSize().width, dim.height/4- this.getSize().height);
+        this.setLocation(dim.width / 3 - this.getSize().width, dim.height / 4 - this.getSize().height);
 
         scrollBar.setBounds(10, 40, 280, 100);
         taskInput.setLineWrap(true);
@@ -61,10 +70,8 @@ public class MyFrame extends JFrame implements ActionListener {
         dayChoice.setEditable(false);
         dayChoice.setBounds(350, 160, 100, 20);
 
-
         spalte_beschreiben.setBounds(300, 300, 150, 40);
         spalte_beschreiben.addActionListener(this);
-
 
         excel_create.setBounds(300, 370, 150, 40);
         excel_create.addActionListener(this);
@@ -90,6 +97,11 @@ public class MyFrame extends JFrame implements ActionListener {
             }
         });
 
+        // Initialize the JTable and its DefaultTableModel
+        tableModel = new DefaultTableModel(columnNames, 0);
+        jTable = new JTable(tableModel);
+        JScrollPane scrollPane = new JScrollPane(jTable);
+        scrollPane.setBounds(10, 200, 480, 200);
 
         this.add(spalte_beschreiben);
         this.add(dayChoice);
@@ -100,6 +112,8 @@ public class MyFrame extends JFrame implements ActionListener {
         this.add(textForTask);
         this.add(textForDay);
         this.add(scrollBar);
+        this.add(scrollPane);
+
         this.setSize(500, 500);
         this.setVisible(true);
     }
@@ -108,39 +122,41 @@ public class MyFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == spalte_beschreiben) {
             ArrayList<String> array_data_input = new ArrayList<>();
-            // Create a new ArrayList for each row of data
             array_data_input.add(taskInput.getText());
             array_data_input.add(timeStart.getSelectedItem() + "-" + timeEnd.getSelectedItem());
-            array_whole_data.add(array_data_input);
-            System.out.println(Arrays.deepToString(array_whole_data.toArray()));
+            array_whole_data.add(Collections.singletonList(array_data_input));
+
+            // Add the data to the JTable
+            tableModel.addRow(array_data_input.toArray());
+
             for (int i = timeEnd.getSelectedIndex(); i >= 0; i--) {
                 timeStart.removeItemAt(i);
                 timeEnd.removeItemAt(i);
             }
         }
-       if (e.getSource() == excel_create) {
 
-           try (Workbook workbook = new XSSFWorkbook()) {
-               Sheet sheet = workbook.createSheet("SampleSheet_Arraylist");
+        if (e.getSource() == excel_create) {
+            try (Workbook workbook = new XSSFWorkbook()) {
+                Sheet sheet = workbook.createSheet("SampleSheet_Arraylist");
 
-               // Populate the sheet with data from the two-dimensional array
-               for (int i = 0; i < array_whole_data.size(); i++) {
+                // Populate the sheet with data from the JTable
+                for (int row = 0; row < jTable.getRowCount(); row++) {
+                    Row excelRow = sheet.createRow(row);
+                    for (int col = 0; col < jTable.getColumnCount(); col++) {
+                        Object cellValue = jTable.getValueAt(row, col);
+                        Cell cell = excelRow.createCell(col);
+                        cell.setCellValue(cellValue.toString());
+                    }
+                }
 
-                   Row row = sheet.createRow(i);
-                   for (int j = 0; j < array_whole_data.get(i).size(); j++) {
-                       Cell cell = row.createCell(j);
-                       cell.setCellValue(array_whole_data.get(i).get(j));
-                   }
-               }
-
-               try (FileOutputStream fos = new FileOutputStream("SampleExcel_With_Data.xlsx")) {
-                   workbook.write(fos);
-
-               }
-           } catch (IOException exception) {
-               exception.printStackTrace();
-           }
-           System.exit(0);
+                try (FileOutputStream fos = new FileOutputStream("SampleExcel_With_Data.xlsx")) {
+                    workbook.write(fos);
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+            System.exit(0);
         }
     }
+
 }
